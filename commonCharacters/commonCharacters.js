@@ -9,9 +9,21 @@
  *
  * Extra credit: Extend your function to handle more than two input strings.
  */
-
-
+clear()
 
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+    let str1Chars = Array.from(new Set(string1));
+    let str2Chars = Array.from(new Set(string2));
+    let result = '';
+
+    return str1Chars.map((char,index)=>{
+        for (var i = 0; i < str2Chars.length; i++) {
+            if (char === str2Chars[i] && char != ' ') {
+                return str2Chars[i];
+            }
+        }
+    }
+    ).join('');
 };
+
+// console.log(commonCharacters('aczxizvz ou', 'aegi hobuzz'));
