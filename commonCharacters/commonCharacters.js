@@ -14,7 +14,6 @@ clear()
 var commonCharacters = function(string1, string2) {
     let str1Chars = Array.from(new Set(string1));
     let str2Chars = Array.from(new Set(string2));
-    let result = '';
 
     return str1Chars.map((char,index)=>{
         for (var i = 0; i < str2Chars.length; i++) {
