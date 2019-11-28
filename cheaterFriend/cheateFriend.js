@@ -25,18 +25,20 @@ var removNb = function(n) {
     let arr = [];
     let sum = Array.from(new Array(n), (v,i)=>i + 1).reduce((acc,n)=>acc + n);
 
-    for (var i = 1; i <= n; i++) {
-        if (i * (i + 1) !== sum) {
-            arr.push({
-                a: i,
-                b: i + 1
-            })
+    for (var i = 1; i < n; i++) {
+        for (var j = i; j <= n; j++) {
+            console.log(i * j, i, j)
+            if ((i * j) === sum) {
+                arr.push({
+                    a: i,
+                    b: j
+                })
+            }
         }
-        console.log(i);
     }
 
-    console.log(arr, sum)
+    return arr;
 }
 
 console.log(removNb(3))
-console.log(removNb(26))
+// console.log(removNb(26))
