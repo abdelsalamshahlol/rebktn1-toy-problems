@@ -28,3 +28,25 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+console.clear();
+
+// Loop the array
+// Check if num[i] > num[j]
+	// num[i] = num[i] - num[j]
+	
+var solution = function(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+            //             console.log(arr)
+            if (arr[i] > arr[j]) {
+                //                 console.log(`${arr[i]} AT ${i} is greateer than ${arr[j]} at ${j}`)
+                arr[i] = (arr[i]) - arr[j];
+            }
+            console.log(arr)
+
+            //                         console.log(arr[i], arr[j])
+        }
+    }
+}
+
+console.log(solution([6, 9, 12]))
