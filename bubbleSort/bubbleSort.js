@@ -40,17 +40,17 @@
 
 console.clear();
 var bubbleSort = function(array) {
-    array.forEach((n,index)=>{
-        let tmp = n;
-        if (tmp > array[index + 1]) {
-            array[index] = array[index + 1];
-            array[index + 1] = tmp;
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j <= i; j++) {
+            let tmp = array[i];
+            if (tmp < array[j]) {
+                array[i] = array[j];
+                array[j] = tmp;
+            }
         }
     }
-    );
-
     return array;
 };
 
-console.log(bubbleSort([2, 1, 3]));  // yields [1, 2, 3]
-console.log(bubbleSort([29, 13, 5, 0]));
+console.log(bubbleSort([2, 1, 3, 0]));
+console.log(bubbleSort([209, 13, 5, 0]));
