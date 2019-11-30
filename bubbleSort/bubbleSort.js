@@ -33,6 +33,24 @@
 // Feel free to add helper functions if needed.
 
 
+//Psuedo code
+// Loop elements
+//  if arr[i] > arr[i + 1]
+//    arr[i + 1] = arr[i];
+
+console.clear();
 var bubbleSort = function(array) {
-  // Your code here.
+    array.forEach((n,index)=>{
+        let tmp = n;
+        if (tmp > array[index + 1]) {
+            array[index] = array[index + 1];
+            array[index + 1] = tmp;
+        }
+    }
+    );
+
+    return array;
 };
+
+console.log(bubbleSort([2, 1, 3]));  // yields [1, 2, 3]
+console.log(bubbleSort([29, 13, 5, 0]));
