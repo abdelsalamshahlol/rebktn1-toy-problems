@@ -10,15 +10,14 @@
  * console.log(index); // null
  */
 
-// If target == mid array
-//  return position
-// Else if smaller loop from mid to zero and compare
-// else loop from mid to array length
+// If target == mid array return position
+// Else if smaller Loop from mid to zero and compare
+// Else Loop from mid to array length
 console.clear();
 
 var binarySearch = function(array, target) {
     let mid = Math.floor(array.length / 2);
-    
+
     if (array[mid] === target) {
         return mid;
     } else if (target < array[mid]) {
