@@ -52,5 +52,8 @@ var bubbleSort = function(array) {
     return array;
 };
 
+
+// Time complexity is o(n) squared
+
 console.log(bubbleSort([2, 1, 3, 0]));
 console.log(bubbleSort([209, 13, 5, 0]));
