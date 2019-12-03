@@ -10,6 +10,33 @@
  * console.log(index); // null
  */
 
-var binarySearch = function (array, target) {
+// If target == mid array
+//  return position
+// Else if smaller loop from mid to zero and compare
+// else loop from mid to array length
+console.clear();
+
+var binarySearch = function(array, target) {
+    let mid = Math.floor(array.length / 2);
+    
+    if (array[mid] === target) {
+        return mid;
+    } else if (target < array[mid]) {
+        for (var i = mid; i >= 0; i--) {
+            if (array[i] === target) {
+                return i;
+            }
+        }
+    } else {
+        for (var i = mid; i < array.length; i++) {
+            if (array[i] === target) {
+                return i;
+            }
+        }
+    }
 };
+
+console.log(binarySearch([1, 2, 3, 4, 5], 4));
+console.log(binarySearch([1, 2, 3, 4, 5], 3));
+console.log(binarySearch([1, 2, 3, 4, 5], 8));
 
