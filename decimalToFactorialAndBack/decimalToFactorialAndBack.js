@@ -21,3 +21,71 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+
+console.clear()
+
+// decimal number 463 is coded as "341010":
+// 463 (base 10) = 3×5! + 4×4! + 1×3! + 0×2! + 1×1! + 0×0!
+
+
+var dec2FactString = function(nb) {
+
+}
+
+var factString2Dec = function(str) {
+
+}
+
+// Find the start using helper function
+// Loop from start
+//	Break when number is equal to given number
+
+var convert = function(number) {
+    let result = 0;
+    let str = '';
+    let c = 0;
+
+    while (factorial(c) < number) {
+        console.log(c)
+        if (c === 0 && factorial(c) < number) {
+            result += (c * factorial(c));
+            str += 0;
+        } else if (c === 1 && factorial(c) < number) {
+            result += (c * factorial(c));
+            str += c;
+        } else if (c > 1 && factorial(c) < number) {
+            for (var k = 0; k <= c; k++) {
+            }
+        }
+        c++;
+    }
+    console.log({
+        result
+    })
+}
+
+// Factorial helper
+var factorial = function(n) {
+    let c = 1;
+    let result = 1;
+
+    while (c <= n) {
+        result *= c;
+        c++;
+    }
+
+    return result;
+}
+
+// Find the start 
+var findStart = function(number) {
+    let result = 0;
+    let c = 0;
+
+    while (true) {
+        if (factorial(c) > number) {
+            return c - 1;
+        }
+        c++;
+    }
+}
