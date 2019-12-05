@@ -11,3 +11,31 @@ characterFrequency("mississippi")  -->  [ [ "i", 4 ], [ "s", 4 ], [ "p", 2 ], [ 
 
 characterFrequency("") -->  [ ]
 */
+
+console.clear();
+var characterFrequency = function(str) {
+    let result = [];
+    let characters = {};
+    let counter = 0;
+
+    for (var i = 0; i < str.length; i++) {
+        for (var j = 0; j <= i; j++) {
+            if (str[i] === str[j]) {
+                if (characters[str[i]]) {
+                    characters[str[i]] = counter + 1;
+                } else {
+                    characters[str[i]] = 1;
+                }
+                counter++;
+            }
+        }
+        counter = 0;
+    }
+
+    result = Object.entries(characters).sort((elem1,elem2)=>elem2[1] - elem1[1]);
+    //     console.log(result)
+    return result;
+}
+
+console.log(characterFrequency("aaabbc"));
+console.log(characterFrequency("mississippi"));
