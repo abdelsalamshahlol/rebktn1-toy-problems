@@ -36,9 +36,20 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  let x = arguments[1] || [];
+  let depth = arguments[2] || 0;
+
+  // If callback returns true push it to result array
+  if (filter(this.value, depth)) {
+      x.push(this.value);
+  }
+  // Increase the depth on each recusive call
+  depth++;
+  for (var i = 0; i < this.children.length; i++) {
+      this.children[i].DFSelect(filter, x, depth);
+  }
+  return x;
 };
-
-
 
 /**
  * You shouldn't need to change anything below here, but feel free to look.
