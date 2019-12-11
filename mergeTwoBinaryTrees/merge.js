@@ -1,7 +1,10 @@
 /*
-Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
+Given two binary trees and imagine that when you put one of them to cover the other, 
+some nodes of the two trees are overlapped while the others are not.
 
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+You need to merge them into a new binary tree. 
+The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. 
+Otherwise, the NOT null node will be used as the node of new tree.
 
 Example 1:
 
@@ -36,4 +39,45 @@ Note: The merging process must start from the root nodes of both trees.
  * @param {TreeNode} t2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {};
+var mergeTrees = function(t1, t2) {
+	let val = this.t1.val + this.t2.val;
+	console.log(val)
+	let result = new TreeNode(val) || arguments[2];
+	
+	if(this.t1.left || this.t2.left){
+		this.mergeTrees(this.t1.left, this.t2.left, result);
+	}
+
+	if(this.t1.right || this.t2.right){
+		this.mergeTrees(this.t1.right, this.t2.right, result);
+	}
+	console.log(t1, t2, result)
+};
+
+console.clear();
+var TreeNode = function(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+}
+
+TreeNode.prototype.addChild = function(val) {
+    let node = new TreeNode(val);
+    if (this.val > val) {
+        this.left = node;
+    } else {
+        this.right = node;
+    }
+    return node;
+}
+
+TreeNode.prototype.traverse = function(cb){
+	console.log(this.val);
+	if(this.left){
+		this.left.traverse(cb);
+	}
+	if(this.right){
+		this.right.traverse(cb);
+	}
+}
+
