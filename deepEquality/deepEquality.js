@@ -13,12 +13,12 @@
   */
 
  console.clear();
- 
+
  var deepEquals = function(apple, orange) {
      return toStr(apple) === toStr(orange);
  };
  
- var toStr = function(str) {
-     return JSON.stringify(str);
+ var toStr = function(obj) {
+     return JSON.stringify(obj);
  }
  
