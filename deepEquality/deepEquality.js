@@ -15,10 +15,23 @@
  console.clear();
 
  var deepEquals = function(apple, orange) {
-     return toStr(apple) === toStr(orange);
- };
- 
- var toStr = function(obj) {
-     return JSON.stringify(obj);
- }
+  let obj1 = toStrSpecial(apple);
+  let obj2 = toStrSpecial(orange);
+  return obj1 === obj2;
+};
+
+var toStrSpecial = function(obj) {
+  let result = [];
+  for (var key in obj) {
+      if (typeof obj[key] === 'object') {
+          let str = key + ':' + Object.entries(obj[key]);
+          result.push(str);
+      } else {
+          let str = key + ':' + obj[key];
+          result.push(str)
+      }
+  }
+  return result.toString();
+}
+
  
