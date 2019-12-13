@@ -9,4 +9,20 @@ parseQueryString("http://example.com?msg=hello%20world") // [ [ "msg", "hello wo
 parseQueryString("http://example.com") // undefined
 */
 
-function parseQueryString(url) {}
+console.clear();
+function parseQueryString(url) {
+    let decoded = decodeURIComponent(url);
+
+    if (decoded.indexOf('?') < 0) {
+        return;
+    }
+
+    let paramStr = decoded.slice(decoded.indexOf('?') + 1);
+    return [paramStr.split('&').map((val)=>[val.slice(0, val.indexOf('=')), val.slice(val.indexOf('=') + 1)])];
+}
+
+// Test Cases
+
+console.log(parseQueryString("http://example.com?a=hello&b=99"));
+console.log(parseQueryString("http://example.com?msg=hello%20world"));
+console.log(parseQueryString("http://example.com"));
