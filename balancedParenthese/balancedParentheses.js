@@ -8,4 +8,9 @@ isBalanced("(50)(")	// false
 isBalanced("") //	true
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function(str) {
+    if (str === '') {
+        return true;
+    }
+    return str.match(/\(/g).length === str.match(/\)/g).length;
+};
