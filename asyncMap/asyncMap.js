@@ -39,12 +39,6 @@
 
 console.clear();
 var asyncMap = (tasks, callback)=> {
-    let results = [];
-    let cb = function (res){
-        results.push(res);
-        callback(results)
-    }
-
     tasks[0]((val1)=>{
         tasks[1]((val2)=>{
             callback([val1,val2]);
