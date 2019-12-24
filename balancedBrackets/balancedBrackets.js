@@ -9,4 +9,21 @@ isBalanced("(50)(") // false
 isBalanced("[{]}") // false
 */
 
-var isBalanced = function(str) {};
+var isBalanced = function (str) {
+    let types = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+    let myBrackets = [];
+
+    for (let ch of str) {
+        if (types[ch]) {
+            myBrackets.push(types[ch]);
+        }
+        if (ch === myBrackets[myBrackets.length - 1]) {
+            myBrackets.pop();
+        }
+    }
+    return myBrackets.length === 0;
+};
