@@ -25,21 +25,58 @@ var makeHashTable = function() {
   var storage = [];
   var storageLimit = 4;
   var size = 0;
-  
-  result.insert = function(/*...*/ 
-) {
-    // TODO: implement `insert`
+
+  result.storage = storage;
+  result.insert = function(val, key) {
+    let i = getIndexBelowMaxForKey(key, storageLimit);
+    if (!storage[i]) {
+      storage[i] = new Array([val, key]);
+    } else {
+      storage[i].push([val, key]);
+    }
   };
 
-  result.retrieve = function(/*...*/ 
-) {
-    // TODO: implement `retrieve`
+  result.retrieve = function(key) {
+    let i = getIndexBelowMaxForKey(key, storageLimit);
+    if (Array.isArray(storage[i])) {
+      let result;
+      storage[i].forEach(tuple => {
+        if (tuple[1] === key) {
+          result = tuple;
+        }
+      });
+      return result;
+    } else {
+      return storage[i];
+    }
   };
 
-  result.remove = function(/*...*/ 
-) {
-    // TODO: implement `remove`
+  result.remove = function(key) {
+    let i = getIndexBelowMaxForKey(key, storageLimit);
+    if (Array.isArray(storage[i])) {
+      let result;
+      storage[i].forEach((tuple, index) => {
+        if (tuple[1] === key) {
+          storage[i].splice(index, 1);
+          result = tuple;
+        }
+      });
+      return result;
+    } else {
+      return storage[i].splice(i, 1);
+    }
   };
 
   return result;
+
 };
+
+let ht = new makeHashTable();
+ht.insert('max', 'pug');
+ht.insert('min', 'pugw');
+ht.insert('min2', 'pug2');
+ht.insert('min3', 'pug1');
+ht.insert('min', 'pug9');
+console.log(ht.retrieve('pug'))
+console.log(ht.remove('pug9'));
+console.log(ht.storage);
