@@ -18,6 +18,21 @@ powerSet("obama") // [ "", "a", "ab", "abm", "abmo", "abo", "am", "amo", "ao", "
 powerSet("horse") // [ "", "e", "eh", "eho", "ehor", "ehors", "ehos", "ehr", "ehrs", "ehs", "eo", "eor", "eors", "eos", "er", "ers", "es", "h", "ho", "hor", "hors", "hos", "hr", "hrs", "hs", "o", "or", "ors", "os", "r", "rs", "s" ]
 */
 
+console.clear();
 function powerSet(string) {
-  // your code here...
+    string = [...new Set(string.split(''))].sort().join('');
+    let result = arguments[1] || [''];
+    //     console.log(string);
+    if (string === '') {
+        return result;
+    }
+
+//push the first letter only
+    result.push(string);
+
+    return powerSet(string.slice(1), result);
 }
+
+console.log(powerSet('ab'));
+console.log(powerSet('obama'));
+
