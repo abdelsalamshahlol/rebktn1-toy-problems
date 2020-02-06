@@ -11,5 +11,18 @@ toMilitary("04:00") // "04:00"
 */
 
 function toMilitary(time) {
-  // your code here...
+  let timeSplit = time.split(/(pm|am)/);
+  const split = timeSplit[0].split(':');
+
+  if (!timeSplit[1]) {
+    return time;
+  } else if (timeSplit[1] === 'am') {
+    if (parseInt(split[0]) < 12) {
+      return 0 + timeSplit[0];
+    } else {
+      return `00:${split[1]}`;
+    }
+  } else {
+    return `${parseInt(split[0]) + 12}:${split[1]}`;
+  }
 }
