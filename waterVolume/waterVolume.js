@@ -1,5 +1,7 @@
 /*
-You are given an array of numbers that each represent the height of an adjoining building. During torrential rain, water collects in the spaces between buildings. What is the maximum amount of water collected by the buildings represented by the array?
+You are given an array of numbers that each represent the height of an adjoining building. 
+During torrential rain, water collects in the spaces between buildings.
+What is the maximum amount of water collected by the buildings represented by the array?
 
 Explanation: An input of [3,0,3] can be visualized as such:
 
@@ -19,5 +21,10 @@ volume([1,2,3,2,1]) // 0
 */
 
 function volume(heights) {
-  // your code here...
+  for (let i = 0; i < heights.length; i++) {
+    if (heights[i + 1] === 0 && heights[i + 2] >= heights[i]) {
+      return heights[i]
+    }
+  }
+  return 0;
 }
