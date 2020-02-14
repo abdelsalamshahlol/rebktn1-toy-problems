@@ -66,10 +66,21 @@ Mergesort is an optimized sorting algorithm which is a common choice to implemen
 (For example, Firefox's Array.sort method uses a tuned mergesort; the WebKit engine used by Chrome and Safari uses quicksort for numeric arrays, and mergesort for arrays of strings.)
 */
 
-Array.prototype.sort = function() {
+Array.prototype.sort = function () {
   console.log("please don't use the native sort function!");
 };
 
 function mergeSort(arr) {
-  // your code here...
+  // Spliting the array into two 
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  console.log(left, right)
+
+  return mergeSort(left.slice())
 }
