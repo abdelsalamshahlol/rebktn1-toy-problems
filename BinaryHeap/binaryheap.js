@@ -1,7 +1,14 @@
 // Binary Heap
-// A heap is a special kind of tree in which a parent node is ordered only in respect to its immediate children. Unlike the binary search tree you may have implemented, where the entire tree is ordered, in a heap the only order guaranteed is between a node and its parent.
+// A heap is a special kind of tree in which a parent node is ordered only in respect to its immediate children. 
+// Unlike the binary search tree you may have implemented, 
+// where the entire tree is ordered, in a heap the only order guaranteed is between a node and its parent.
 
-// In a binary heap each node should have only zero, one, or two children. Each node must have 2 children before the next oldest node can have any children. Therefore the 0th node will be the parent of the 1st and 2nd nodes, the 1st node will be the parent of the 3rd and 4th nodes, and the 2nd node will be the parent of the 5th and 6th nodes. In a specific kind of binary heap, the binary min heap, every node is less than its immediate children:
+// In a binary heap each node should have only zero, one, or two children.
+// Each node must have 2 children before the next oldest node can have any children.
+// Therefore the 0th node will be the parent of the 1st and 2nd nodes, 
+// the 1st node will be the parent of the 3rd and 4th nodes, 
+// and the 2nd node will be the parent of the 5th and 6th nodes. 
+// In a specific kind of binary heap, the binary min heap, every node is less than its immediate children:
 // ……..0…….
 // …1………2..
 // .3…4…..5…6

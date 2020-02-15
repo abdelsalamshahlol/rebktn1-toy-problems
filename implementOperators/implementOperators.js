@@ -11,14 +11,29 @@ EXAMPLES:
   modulo(5, 2) // 1
 */
 
-var multiply = function(x, y) {
-  // your code here...
+var multiply = function (x, y) {
+  let result = 0;
+  while (y > 0) {
+    result += x;
+    y--;
+  }
+  return result;
 };
 
-var divide = function(x, y) {
-  // your code here...
+var divide = function (x, y) {
+  let result = 0;
+  while (x > 0) {
+    if (x === 1)
+      return result;
+    result += 1;
+    x -= y;
+  }
+  return result;
 };
 
-var modulo = function(x, y) {
-  // your code here...
+var modulo = function (x, y) {
+  while (x >= y) {
+    x -= y;
+  }
+  return x;
 };
